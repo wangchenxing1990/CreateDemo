@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="text_account">请输入用户名</string>
+    <string name="text_password">请输入密码</string>
+</resources>
