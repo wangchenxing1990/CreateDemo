@@ -8,8 +8,7 @@
     <mvp.wangyukui.com.myapplication.defineRecycler.PullRefreshRecyclerView
         android:id="@+id/pullRefreshRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
 </mvp.wangyukui.com.myapplication.defineRecycler.MessageRelativeLayout>
-
-    <!--</RelativeLayout>-->

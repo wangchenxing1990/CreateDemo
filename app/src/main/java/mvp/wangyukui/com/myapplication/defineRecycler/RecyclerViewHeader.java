@@ -22,7 +22,7 @@ import mvp.wangyukui.com.myapplication.R;
  * 描述:
  */
 
-public class RecyclerViewHeader extends LinearLayout {
+public class RecyclerViewHeader extends RelativeLayout {
     /**
      * 动画执行时间
      */
@@ -37,7 +37,7 @@ public class RecyclerViewHeader extends LinearLayout {
     private int mState = STATE_NORMAL;
 
     //获取到头布局
-    private LinearLayout mContainer;
+    private RelativeLayout mContainer;
     //获取到控件
     private ImageView mArrowImageView;
     //    private ProgressBar mProgressBar;
@@ -67,7 +67,7 @@ public class RecyclerViewHeader extends LinearLayout {
         // 初始情况，设置下拉刷新view高度为0
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 0);
         //获取下拉布局
-        mContainer = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.pullrefrefh_recyclerview_header, (ViewGroup) getParent(), true);
+        mContainer = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.pullrefrefh_recyclerview_header, (ViewGroup) getParent(), true);
         //添加到改容器
         addView(mContainer, lp);
         //显示位置下面
@@ -126,7 +126,6 @@ public class RecyclerViewHeader extends LinearLayout {
             case STATE_REFRESHING://刷新状态
                 mHintTextView.setText("正在加载...");
                 break;
-            default:
         }
 
         mState = state;

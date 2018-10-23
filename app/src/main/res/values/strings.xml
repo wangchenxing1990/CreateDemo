@@ -2,4 +2,5 @@
     <string name="app_name">My Application</string>
     <string name="text_account">请输入用户名</string>
     <string name="text_password">请输入密码</string>
+    <string name="text_test">假期旅游的地点:%1$s时间安排%2$d天游</string>
 </resources>

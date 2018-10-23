@@ -24,7 +24,7 @@ import mvp.wangyukui.com.myapplication.R;
 public class MessageRelativeLayout extends RelativeLayout {
 
     //显示消息的控件
-    private LinearLayout mHeaderMessageView;
+    private RelativeLayout mHeaderMessageView;
     private TextView mHeaderMessageText;
 
 
@@ -51,12 +51,12 @@ public class MessageRelativeLayout extends RelativeLayout {
         //滚动类
         mScroller = new Scroller(context, new DecelerateInterpolator());
         //初始化一个显示消息的textView
-        mHeaderMessageView = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.pullrefresh_header_message, (ViewGroup) getParent(), false);
+        mHeaderMessageView = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.pullrefresh_header_message, (ViewGroup) getParent(), false);
         mHeaderMessageView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0));
-
-        mHeaderMessageText = (TextView) mHeaderMessageView.findViewById(R.id.pullRefresh_message);
+        mHeaderMessageText = mHeaderMessageView.findViewById(R.id.pullRefresh_message);
 
         // 初始化 头部高度
+
         mHeaderMessageText.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -129,6 +129,7 @@ public class MessageRelativeLayout extends RelativeLayout {
     public int getVisibleHeight() {
         return mHeaderMessageView.getLayoutParams().height;
     }
+
     @Override
     public void computeScroll() {
         if (mScroller.computeScrollOffset()) {

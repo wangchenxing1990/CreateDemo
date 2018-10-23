@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".SecondActivity"/>
         <activity android:name=".defineRecycler.DefineRecyclerActivity"/>
+        <activity android:name=".WebNewActivity"
+            android:theme="@android:style/Theme.Translucent"/>
     </application>
 
 </manifest>

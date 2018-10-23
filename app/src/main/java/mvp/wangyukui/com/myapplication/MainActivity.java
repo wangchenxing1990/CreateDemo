@@ -13,6 +13,7 @@ import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity implements LoginView, View.O
     private EditText edit_text_password;
     private Button button_login;
     private Button button_register;
+    private Button start_new_activity;
     private RelativeLayout relative_progress;
     private PresenterRequest presenterRequest;
     private ViewStub viewStub;
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
+    private TextView text_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +39,23 @@ public class MainActivity extends AppCompatActivity implements LoginView, View.O
         setContentView(R.layout.activity_main);
         edit_text_account = findViewById(R.id.edit_text_account);
         edit_text_password = findViewById(R.id.edit_text_password);
+        text_test = findViewById(R.id.text_test);
         button_login = findViewById(R.id.button_login);
         button_register = findViewById(R.id.button_register);
+        start_new_activity = findViewById(R.id.start_new_activity);
         relative_progress = findViewById(R.id.relative_progress);
         relative_progress.setVisibility(View.INVISIBLE);
         button_register.setOnClickListener(this);
         button_login.setOnClickListener(this);
+        start_new_activity.setOnClickListener(this);
         presenterRequest = new PresenterRequest(this);
 
 //        viewStub = findViewById(R.id.view_stub);
         registerReceiver = new MyNetWorkBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(registerReceiver, intentFilter);
+        String text = getString(R.string.text_test, "杭州西湖美景", 6);
+        text_test.setText(text);
     }
 
     @Override
@@ -87,13 +95,17 @@ public class MainActivity extends AppCompatActivity implements LoginView, View.O
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_register:
-                Intent intent=new Intent(this,DefineRecyclerActivity.class);
+                Intent intent = new Intent(this, DefineRecyclerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.button_login:
                 String account = edit_text_account.getText().toString().trim();
                 String password = edit_text_password.getText().toString().trim();
                 presenterRequest.clickRequest(account, password);
+                break;
+            case R.id.start_new_activity:
+                Intent intentWeb = new Intent(this, WebNewActivity.class);
+                startActivity(intentWeb);
                 break;
         }
     }

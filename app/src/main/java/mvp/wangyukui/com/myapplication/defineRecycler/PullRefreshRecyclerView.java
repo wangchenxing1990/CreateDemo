@@ -233,7 +233,7 @@ public class PullRefreshRecyclerView extends RecyclerView {
             }
         }
         //移动到顶部
-        smoothScrollBy(0, 0);
+//        smoothScrollBy(-mHeaderView.getVisibleHeight(), mHeaderView.getVisibleHeight());
     }
 
     /**
@@ -293,7 +293,7 @@ public class PullRefreshRecyclerView extends RecyclerView {
                 Log.i("刷新显示了", "刷新显示了多少条数据");
                 mParent.showMessage();
             }
-            mScroller.startScroll(0, height, 0, obligateHeight - height, SCROLL_DURATION);
+            mScroller.startScroll(0,height, 0, obligateHeight - height, SCROLL_DURATION);
             // 触发计算滚动
             invalidate();
             //延时执行复位移动
