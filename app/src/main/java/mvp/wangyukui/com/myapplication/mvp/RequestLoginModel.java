@@ -1,10 +1,6 @@
-package mvp.wangyukui.com.myapplication;
-
-import android.text.TextUtils;
-import android.widget.Toast;
+package mvp.wangyukui.com.myapplication.mvp;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 
 import okhttp3.Call;
 import okhttp3.Callback;

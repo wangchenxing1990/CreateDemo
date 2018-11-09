@@ -20,10 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"/>
-        <activity android:name=".defineRecycler.DefineRecyclerActivity"/>
-        <activity android:name=".WebNewActivity"
-            android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".defineRecycler.DefineRecyclerActivity" />
+        <activity
+            android:name=".WebNewActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".statemode.StateActivity" />
+        <activity android:name=".statemode.LoginActivity" />
+        <activity android:name=".rxjava.RxJavaActivity" />
+        <activity android:name=".mvp.MvpActivity" />
+
     </application>
 
 </manifest>

@@ -1,12 +1,17 @@
 package mvp.wangyukui.com.myapplication.rxjava;
 
+import android.content.Intent;
 import android.database.Observable;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import mvp.wangyukui.com.myapplication.MainActivity;
 import mvp.wangyukui.com.myapplication.R;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +36,8 @@ public class RxJavaActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_java);
+//        BitmapFactory.decodeResource();
+//        BitmapFactory.decodeFile();
         text_view = findViewById(R.id.text_view);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -57,8 +64,6 @@ public class RxJavaActivity extends AppCompatActivity {
                         serviceBean.getSubjects();
                     }
                 });
-
-
 //        Call<ServiceBean> service = createService.getService(0, 20);
 //        service.enqueue(new Callback<ServiceBean>() {
 //            @Override
@@ -73,5 +78,9 @@ public class RxJavaActivity extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+
+    public static void startEnterActivity(MainActivity mainActivity) {
+        mainActivity.startActivity(new Intent(mainActivity,RxJavaActivity.class));
     }
 }
