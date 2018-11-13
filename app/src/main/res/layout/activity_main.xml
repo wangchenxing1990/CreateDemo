@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="mvp.wangyukui.com.myapplication.MainActivity">
+   >
 
     <ViewStub
         android:id="@+id/view_stub"
@@ -15,58 +15,43 @@
 
     <Button
         android:id="@+id/button_mvp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="mvp练习"
-        android:textSize="18sp"
-        android:visibility="visible" />
+        style="@style/button_style"
+        android:text="@string/text_mvp"
+         />
 
     <Button
         android:id="@+id/button_internet"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="自定义的上拉刷新上拉加载"
-        android:textSize="18sp"
-        android:visibility="visible" />
+        style="@style/button_style"
+        android:text="@string/text_refresh"
+        />
 
     <Button
         android:id="@+id/start_new_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="新的webview界面"
-        android:textSize="18sp"
-        android:visibility="visible" />
+        style="@style/button_style"
+        android:text="@string/text_new_web_view"
+        />
 
     <TextView
         android:id="@+id/text_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="11223"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/button_state_mode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="状态模式" />
+        style="@style/button_style"
+        android:text="@string/text_state" />
 
     <Button
-        android:id="@+id/button_rxava_mode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="rxjava模式" />
+        style="@style/button_style"
+        android:id="@+id/button_rxjava_mode"
+        android:text="@string/text_rx_java" />
+
+    <Button
+        android:id="@+id/button_duty"
+        style="@style/button_style"
+        android:text="@string/text_duty"
+        />
 
 </LinearLayout>

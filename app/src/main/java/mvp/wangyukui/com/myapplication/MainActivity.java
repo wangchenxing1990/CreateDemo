@@ -18,13 +18,14 @@ import android.widget.TextView;
 import java.io.IOException;
 
 import mvp.wangyukui.com.myapplication.defineRecycler.DefineRecyclerActivity;
+import mvp.wangyukui.com.myapplication.duty.DutyActivity;
 import mvp.wangyukui.com.myapplication.mvp.MvpActivity;
 import mvp.wangyukui.com.myapplication.mvp.PresenterRequest;
 import mvp.wangyukui.com.myapplication.rxjava.RxJavaActivity;
 import mvp.wangyukui.com.myapplication.statemode.StateActivity;
 import mvp.wangyukui.com.myapplication.tools.NetworkTools;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button button_mvp;
     private Button button_internet;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
-    private Button button_state_mode, button_rxjava_mode;
+    private Button button_state_mode, button_rxJava_mode, button_duty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,22 +55,18 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         start_new_activity = findViewById(R.id.start_new_activity);
         button_internet = findViewById(R.id.button_internet);
         button_state_mode = findViewById(R.id.button_state_mode);
-        button_rxjava_mode = findViewById(R.id.button_rxjava_mode);
+        button_rxJava_mode = findViewById(R.id.button_rxjava_mode);
+        button_duty = findViewById(R.id.button_duty);
     }
 
     private void setOnClickListener() {
         button_mvp.setOnClickListener(this);
         button_internet.setOnClickListener(this);
         button_state_mode.setOnClickListener(this);
-        button_rxjava_mode.setOnClickListener(this);
+        button_rxJava_mode.setOnClickListener(this);
         start_new_activity.setOnClickListener(this);
+        button_duty.setOnClickListener(this);
     }
-
-
-
-
-
-
 
 
     class MyNetWorkBroadcastReceiver extends BroadcastReceiver implements View.OnClickListener {
@@ -85,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                     ((ViewStub) findViewById(R.id.view_stub)).inflate();
                     relative_layout = findViewById(R.id.relative_layout);
                     relative_layout.setOnClickListener(this);
-
                 } else {
                     relative_layout.setVisibility(View.VISIBLE);
                 }
@@ -141,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 break;
             case R.id.button_rxjava_mode://rxjava的训练
                 RxJavaActivity.startEnterActivity(this);
+                break;
+            case R.id.button_duty:
+                DutyActivity.startEnterActivity(this);
                 break;
         }
     }

@@ -29,6 +29,7 @@
         <activity android:name=".statemode.LoginActivity" />
         <activity android:name=".rxjava.RxJavaActivity" />
         <activity android:name=".mvp.MvpActivity" />
+        <activity android:name=".duty.DutyActivity" />
 
     </application>
 
