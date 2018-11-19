@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import mvp.wangyukui.com.myapplication.MainActivity;
+import mvp.wangyukui.com.myapplication.MyApplication;
 import mvp.wangyukui.com.myapplication.R;
 
 /**
@@ -44,6 +46,7 @@ public class StateActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.button_login://登录
                 LoginUtil.getInstance().setUserSate(new LoginState());
+                Toast.makeText(MyApplication.myContext, "登录成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_transmit://转发
                 LoginUtil.getInstance().forword(this);
@@ -53,6 +56,7 @@ public class StateActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.button_logout://注销
                 LoginUtil.getInstance().setUserSate(new LogoutState());
+                Toast.makeText(MyApplication.myContext, "注销成功", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
