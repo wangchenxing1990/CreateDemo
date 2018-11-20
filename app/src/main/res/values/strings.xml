@@ -9,4 +9,7 @@
     <string name="text_new_web_view">新的webview界面</string>
     <string name="text_state">状态模式</string>
     <string name="text_rx_java">rxjava模式</string>
+    <string name="text_strategy_mode">策略模式</string>
+    <string name="text_define_item">自定义条目</string>
+    <string name="text_watch">水波纹</string>
 </resources>

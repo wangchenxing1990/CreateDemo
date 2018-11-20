@@ -17,12 +17,15 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import mvp.wangyukui.com.myapplication.cycler.CyclerActivity;
+import mvp.wangyukui.com.myapplication.defineItem.DefineItemActivity;
 import mvp.wangyukui.com.myapplication.defineRecycler.DefineRecyclerActivity;
 import mvp.wangyukui.com.myapplication.duty.DutyActivity;
 import mvp.wangyukui.com.myapplication.mvp.MvpActivity;
 import mvp.wangyukui.com.myapplication.mvp.PresenterRequest;
 import mvp.wangyukui.com.myapplication.rxjava.RxJavaActivity;
 import mvp.wangyukui.com.myapplication.statemode.StateActivity;
+import mvp.wangyukui.com.myapplication.strategyMode.StrategyActivity;
 import mvp.wangyukui.com.myapplication.tools.NetworkTools;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
-    private Button button_state_mode, button_rxJava_mode, button_duty;
+    private Button button_circle,button_state_mode, button_rxJava_mode, button_duty, button_strategy, button_define_item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_state_mode = findViewById(R.id.button_state_mode);
         button_rxJava_mode = findViewById(R.id.button_rxjava_mode);
         button_duty = findViewById(R.id.button_duty);
+        button_strategy = findViewById(R.id.button_strategy);
+        button_define_item = findViewById(R.id.button_define_item);
+        button_circle = findViewById(R.id.button_circle);
     }
 
     private void setOnClickListener() {
@@ -66,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_rxJava_mode.setOnClickListener(this);
         start_new_activity.setOnClickListener(this);
         button_duty.setOnClickListener(this);
+        button_strategy.setOnClickListener(this);
+        button_define_item.setOnClickListener(this);
+        button_circle.setOnClickListener(this);
     }
 
 
@@ -140,6 +149,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_duty:
                 DutyActivity.startEnterActivity(this);
+                break;
+            case R.id.button_strategy:
+                StrategyActivity.startEnterActivity(this);
+                break;
+            case R.id.button_define_item:
+                DefineItemActivity.startEnterActivity(this);
+                break;
+            case R.id.button_circle:
+                CyclerActivity.startEnterActivity(this);
                 break;
         }
     }

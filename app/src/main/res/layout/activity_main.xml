@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
     <ViewStub
         android:id="@+id/view_stub"
@@ -16,20 +15,17 @@
     <Button
         android:id="@+id/button_mvp"
         style="@style/button_style"
-        android:text="@string/text_mvp"
-         />
+        android:text="@string/text_mvp" />
 
     <Button
         android:id="@+id/button_internet"
         style="@style/button_style"
-        android:text="@string/text_refresh"
-        />
+        android:text="@string/text_refresh" />
 
     <Button
         android:id="@+id/start_new_activity"
         style="@style/button_style"
-        android:text="@string/text_new_web_view"
-        />
+        android:text="@string/text_new_web_view" />
 
     <TextView
         android:id="@+id/text_test"
@@ -44,14 +40,27 @@
         android:text="@string/text_state" />
 
     <Button
-        style="@style/button_style"
         android:id="@+id/button_rxjava_mode"
+        style="@style/button_style"
         android:text="@string/text_rx_java" />
 
     <Button
         android:id="@+id/button_duty"
         style="@style/button_style"
-        android:text="@string/text_duty"
-        />
+        android:text="@string/text_duty" />
+
+    <Button
+        android:id="@+id/button_strategy"
+        style="@style/button_style"
+        android:text="@string/text_strategy_mode" />
+
+    <Button
+        android:id="@+id/button_define_item"
+        style="@style/button_style"
+        android:text="@string/text_define_item" />
+    <Button
+        android:id="@+id/button_circle"
+        style="@style/button_style"
+        android:text="@string/text_watch" />
 
 </LinearLayout>

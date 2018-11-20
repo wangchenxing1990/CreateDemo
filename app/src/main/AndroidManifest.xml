@@ -30,7 +30,9 @@
         <activity android:name=".rxjava.RxJavaActivity" />
         <activity android:name=".mvp.MvpActivity" />
         <activity android:name=".duty.DutyActivity" />
+        <activity android:name=".strategyMode.StrategyActivity" />
+        <activity android:name=".defineItem.DefineItemActivity" />
+        <activity android:name=".cycler.CyclerActivity" />
 
     </application>
-
 </manifest>

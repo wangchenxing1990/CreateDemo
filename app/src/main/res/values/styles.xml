@@ -23,4 +23,8 @@
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
     </style>
+
+    <style name="menu_options_view">
+
+    </style>
 </resources>
