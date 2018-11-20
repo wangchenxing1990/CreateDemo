@@ -1,104 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="mvp.wangyukui.com.myapplication.MainActivity">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <ViewStub
         android:id="@+id/view_stub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout="@layout/activity_main_two"/>
-    <RelativeLayout
-        android:id="@+id/relative_progress"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:background="#33aaaaaa"
-        >
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            />
-    </RelativeLayout>
-        <TextView
-            android:id="@+id/text_view_account"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layout_below="@+id/view_stub"
-            android:text="账号"
-            android:textColor="#000023"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edit_text_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_view_account"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/text_view_account" />
-
-    <TextView
-        android:id="@+id/text_view_password"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/text_view_account"
-        android:text="密码"
-        android:gravity="center"
-        android:textColor="#000023"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/edit_text_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/text_view_account"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/text_view_password" />
+        android:layout="@layout/activity_main_two"
+        android:visibility="visible" />
 
     <Button
-        android:id="@+id/button_login"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="18sp"
-        android:text="登   录"
-        android:layout_below="@+id/edit_text_password"/>
+        android:id="@+id/button_mvp"
+        style="@style/button_style"
+        android:text="@string/text_mvp" />
 
     <Button
-        android:id="@+id/button_register"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:text="注   册"
-        android:layout_below="@+id/button_login"/>
+        android:id="@+id/button_internet"
+        style="@style/button_style"
+        android:text="@string/text_refresh" />
+
     <Button
         android:id="@+id/start_new_activity"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:text="开  启"
-        android:layout_below="@+id/button_register"/>
+        style="@style/button_style"
+        android:text="@string/text_new_web_view" />
 
     <TextView
         android:id="@+id/text_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_register"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:text="11223"/>
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button_state_mode"
+        style="@style/button_style"
+        android:text="@string/text_state" />
+
+    <Button
+        android:id="@+id/button_rxjava_mode"
+        style="@style/button_style"
+        android:text="@string/text_rx_java" />
+
+    <Button
+        android:id="@+id/button_duty"
+        style="@style/button_style"
+        android:text="@string/text_duty" />
+
+    <Button
+        android:id="@+id/button_strategy"
+        style="@style/button_style"
+        android:text="@string/text_strategy_mode" />
+
+    <Button
+        android:id="@+id/button_define_item"
+        style="@style/button_style"
+        android:text="@string/text_define_item" />
+    <Button
+        android:id="@+id/button_circle"
+        style="@style/button_style"
+        android:text="@string/text_watch" />
+
+</LinearLayout>

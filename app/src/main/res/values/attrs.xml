@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="menu_options_view">
+        <attr name="title_left" format="string" />
+        <attr name="title_right" format="string" />
+        <attr name="title_center" format="string" />
+
+        <attr name="image_left_src" format="reference" />
+        <attr name="image_right_src" format="reference" />
+        <attr name="imageLeftPadding" format="dimension" />
+        <attr name="imageRightPadding" format="dimension" />
+
+        <attr name="titleLeftSize" format="dimension" />
+        <attr name="titleRightSize" format="dimension" />
+        <attr name="titleCenterSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleMatchView">
+        <!-- 内圈背景色-->
+        <attr name="in_color" format="color"/>
+        <!--中圈背景色-->
+        <attr name="middle_color" format="color"/>
+        <!--外圈背景色-->
+        <attr name="out_color" format="color"/>
+        <!--中圈圆弧颜色-->
+        <attr name="middle_ring_color" format="color"/>
+        <!--外圈圆弧颜色-->
+        <attr name="out_ring_color" format="color"/>
+        <!--圈圈间隙-->
+        <attr name="circle_space" format="dimension" />
+        <!--圈圈画笔大小-->
+        <attr name="circle_paint_width" format="dimension" />
+        <!--中圈最大值-默认100-->
+        <attr name="middle_max" format="float" />
+        <!--中圈当前值-默认0-->
+        <attr name="middle_cur" format="float" />
+        <!--外圈最大值-默认100-->
+        <attr name="out_max" format="float" />
+        <!--外圈当前值-默认0-->
+        <attr name="out_cur" format="float" />
+        <!--外圈是否可见-->
+        <attr name="out_circle_visible" format="boolean" />
+    </declare-styleable>
+
+</resources>

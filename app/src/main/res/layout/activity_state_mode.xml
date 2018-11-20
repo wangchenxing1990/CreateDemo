@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录" />
+
+    <Button
+        android:id="@+id/button_transmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="转发" />
+
+    <Button
+        android:id="@+id/button_discuss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="评论" />
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注销" />
+
+</LinearLayout>

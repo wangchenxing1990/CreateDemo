@@ -1,4 +1,4 @@
-package mvp.wangyukui.com.myapplication;
+package mvp.wangyukui.com.myapplication.mvp;
 
 import android.os.Handler;
 import android.os.Message;
@@ -6,6 +6,9 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import java.io.IOException;
+
+import mvp.wangyukui.com.myapplication.MyApplication;
+import mvp.wangyukui.com.myapplication.R;
 
 /**
  * Created by lenvo on 2018/5/17.

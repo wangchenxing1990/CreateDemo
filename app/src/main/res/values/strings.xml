@@ -3,4 +3,13 @@
     <string name="text_account">请输入用户名</string>
     <string name="text_password">请输入密码</string>
     <string name="text_test">假期旅游的地点:%1$s时间安排%2$d天游</string>
+    <string name="text_duty">责任链模式</string>
+    <string name="text_mvp">mvp练习</string>
+    <string name="text_refresh">自定义的上拉刷新上拉加载</string>
+    <string name="text_new_web_view">新的webview界面</string>
+    <string name="text_state">状态模式</string>
+    <string name="text_rx_java">rxjava模式</string>
+    <string name="text_strategy_mode">策略模式</string>
+    <string name="text_define_item">自定义条目</string>
+    <string name="text_watch">水波纹</string>
 </resources>

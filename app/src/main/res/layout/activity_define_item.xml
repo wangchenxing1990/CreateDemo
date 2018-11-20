@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <mvp.wangyukui.com.myapplication.defineItem.MenuOptionsView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cccccc"
+        app:image_left_src="@mipmap/system_setting"
+        app:image_right_src="@mipmap/icon_next"
+        app:titleCenterSize="10sp"
+        app:titleLeftSize="10sp"
+        app:titleRightSize="10sp"
+        app:title_left="购买"
+        app:title_right="购买" />
+    <!--app:title_center="购买"-->
+
+</RelativeLayout>

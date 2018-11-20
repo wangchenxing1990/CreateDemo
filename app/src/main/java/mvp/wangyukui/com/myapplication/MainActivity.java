@@ -17,76 +17,112 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import mvp.wangyukui.com.myapplication.cycler.CyclerActivity;
+import mvp.wangyukui.com.myapplication.defineItem.DefineItemActivity;
 import mvp.wangyukui.com.myapplication.defineRecycler.DefineRecyclerActivity;
+import mvp.wangyukui.com.myapplication.duty.DutyActivity;
+import mvp.wangyukui.com.myapplication.mvp.MvpActivity;
+import mvp.wangyukui.com.myapplication.mvp.PresenterRequest;
+import mvp.wangyukui.com.myapplication.rxjava.RxJavaActivity;
+import mvp.wangyukui.com.myapplication.statemode.StateActivity;
+import mvp.wangyukui.com.myapplication.strategyMode.StrategyActivity;
+import mvp.wangyukui.com.myapplication.tools.NetworkTools;
 
-public class MainActivity extends AppCompatActivity implements LoginView, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText edit_text_account;
-    private EditText edit_text_password;
-    private Button button_login;
-    private Button button_register;
+    private Button button_mvp;
+    private Button button_internet;
     private Button start_new_activity;
-    private RelativeLayout relative_progress;
-    private PresenterRequest presenterRequest;
-    private ViewStub viewStub;
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
+    private Button button_circle,button_state_mode, button_rxJava_mode, button_duty, button_strategy, button_define_item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edit_text_account = findViewById(R.id.edit_text_account);
-        edit_text_password = findViewById(R.id.edit_text_password);
+        initView();//初始化view
+        setOnClickListener();//初始化点击事件的监听
         text_test = findViewById(R.id.text_test);
-        button_login = findViewById(R.id.button_login);
-        button_register = findViewById(R.id.button_register);
-        start_new_activity = findViewById(R.id.start_new_activity);
-        relative_progress = findViewById(R.id.relative_progress);
-        relative_progress.setVisibility(View.INVISIBLE);
-        button_register.setOnClickListener(this);
-        button_login.setOnClickListener(this);
-        start_new_activity.setOnClickListener(this);
-        presenterRequest = new PresenterRequest(this);
-
-//        viewStub = findViewById(R.id.view_stub);
         registerReceiver = new MyNetWorkBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(registerReceiver, intentFilter);
+
         String text = getString(R.string.text_test, "杭州西湖美景", 6);
         text_test.setText(text);
     }
 
-    @Override
-    public void requestShow() {
-        relative_progress.setVisibility(View.VISIBLE);
+    private void initView() {
+        button_mvp = findViewById(R.id.button_mvp);
+        start_new_activity = findViewById(R.id.start_new_activity);
+        button_internet = findViewById(R.id.button_internet);
+        button_state_mode = findViewById(R.id.button_state_mode);
+        button_rxJava_mode = findViewById(R.id.button_rxjava_mode);
+        button_duty = findViewById(R.id.button_duty);
+        button_strategy = findViewById(R.id.button_strategy);
+        button_define_item = findViewById(R.id.button_define_item);
+        button_circle = findViewById(R.id.button_circle);
     }
 
-    @Override
-    public void requestHide() {
-        relative_progress.setVisibility(View.INVISIBLE);
+    private void setOnClickListener() {
+        button_mvp.setOnClickListener(this);
+        button_internet.setOnClickListener(this);
+        button_state_mode.setOnClickListener(this);
+        button_rxJava_mode.setOnClickListener(this);
+        start_new_activity.setOnClickListener(this);
+        button_duty.setOnClickListener(this);
+        button_strategy.setOnClickListener(this);
+        button_define_item.setOnClickListener(this);
+        button_circle.setOnClickListener(this);
     }
 
-    @Override
-    public void requestSuccess(String string) {
-        Log.i("string", string);
-    }
 
-    @Override
-    public void requestFailure(IOException e) {
-
-    }
-
-    class MyNetWorkBroadcastReceiver extends BroadcastReceiver {
+    class MyNetWorkBroadcastReceiver extends BroadcastReceiver implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (relative_layout == null) {
-                ((ViewStub) findViewById(R.id.view_stub)).inflate();
-                relative_layout = findViewById(R.id.relative_layout);
+            if (NetworkTools.isNetConnect(getApplicationContext())) {
+                if (relative_layout != null) {
+                    relative_layout.setVisibility(View.GONE);
+                }
             } else {
-                relative_layout.setVisibility(View.GONE);
+                if (relative_layout == null) {
+                    ((ViewStub) findViewById(R.id.view_stub)).inflate();
+                    relative_layout = findViewById(R.id.relative_layout);
+                    relative_layout.setOnClickListener(this);
+                } else {
+                    relative_layout.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.relative_layout:
+                    intentSystemSettings();
+                    break;
+            }
+        }
+
+        /**
+         * 跳转到系统设置界面
+         */
+        public void intentSystemSettings() {
+            try {
+                // 跳转到系统的网络设置界面
+                Intent intentSettings = null;
+                // 先判断当前系统版本
+                if (android.os.Build.VERSION.SDK_INT > 10) {  // 3.0以上
+                    intentSettings = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
+                } else {
+                    intentSettings = new Intent();
+                    intentSettings.setClassName("com.android.settings", "com.android.settings.WirelessSettings");
+                }
+                startActivity(intentSettings);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
     }
@@ -94,18 +130,34 @@ public class MainActivity extends AppCompatActivity implements LoginView, View.O
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_register:
+            case R.id.button_internet:
                 Intent intent = new Intent(this, DefineRecyclerActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.button_login:
-                String account = edit_text_account.getText().toString().trim();
-                String password = edit_text_password.getText().toString().trim();
-                presenterRequest.clickRequest(account, password);
+            case R.id.button_mvp:
+                MvpActivity.startActivityEnter(this);
                 break;
             case R.id.start_new_activity:
                 Intent intentWeb = new Intent(this, WebNewActivity.class);
                 startActivity(intentWeb);
+                break;
+            case R.id.button_state_mode://状态模式
+                StateActivity.startEnterActivity(this);
+                break;
+            case R.id.button_rxjava_mode://rxjava的训练
+                RxJavaActivity.startEnterActivity(this);
+                break;
+            case R.id.button_duty:
+                DutyActivity.startEnterActivity(this);
+                break;
+            case R.id.button_strategy:
+                StrategyActivity.startEnterActivity(this);
+                break;
+            case R.id.button_define_item:
+                DefineItemActivity.startEnterActivity(this);
+                break;
+            case R.id.button_circle:
+                CyclerActivity.startEnterActivity(this);
                 break;
         }
     }
