@@ -1,6 +1,7 @@
 package mvp.wangyukui.com.myapplication.cycler;
 
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -28,10 +29,12 @@ public class CircleTwoView extends View {
     private int mRingNormalColor;
     private int mMinCircleColor;
     private Paint mPaint;
-    private int color[] =new int[3];
+    private int color[] = new int[3];
     private int mViewCenterX;
     private int mViewCenterY;
     private RectF mRectF;
+    private ValueAnimator valueAnimator;
+
     public CircleTwoView(Context context) {
         super(context);
         this.context = context;
@@ -72,18 +75,19 @@ public class CircleTwoView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         this.setWillNotDraw(false);
-        color[0]=Color.parseColor("#FFD300");
-        color[1]=Color.parseColor("#FF0084");
-        color[2]=Color.parseColor("#16FF00");
+        color[0] = Color.parseColor("#FFD300");
+        color[1] = Color.parseColor("#FF0084");
+//        color[2]=Color.parseColor("#FF0084");
+        color[2] = Color.parseColor("#16FF00");
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        int viewHeight=getMeasuredHeight();
-        int viewWidth=getMeasuredWidth();
-        mViewCenterX=viewWidth/2;
-        mViewCenterY=viewHeight/2;
+        int viewHeight = getMeasuredHeight();
+        int viewWidth = getMeasuredWidth();
+        mViewCenterX = viewWidth / 2;
+        mViewCenterY = viewHeight / 2;
         mRectF = new RectF(mViewCenterX - mMinRadio - mRingWidth / 2, mViewCenterY - mMinRadio - mRingWidth / 2, mViewCenterX + mMinRadio + mRingWidth / 2, mViewCenterY + mMinRadio + mRingWidth / 2);
     }
 
@@ -91,7 +95,7 @@ public class CircleTwoView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mPaint.setColor(mMinCircleColor);
-        canvas.drawCircle(mViewCenterX,mViewCenterY,mMinRadio,mPaint);
+        canvas.drawCircle(mViewCenterX, mViewCenterY, mMinRadio, mPaint);
         //画默认的圆环
         drawNormalRing(canvas);
         //画彩色圆环
@@ -101,6 +105,7 @@ public class CircleTwoView extends View {
 
     /**
      * 画默认的圆环
+     *
      * @param canvas
      */
     private void drawNormalRing(Canvas canvas) {
@@ -113,6 +118,7 @@ public class CircleTwoView extends View {
 
     /**
      * 画彩色圆环
+     *
      * @param canvas
      */
     private void doColorRing(Canvas canvas) {
@@ -121,10 +127,38 @@ public class CircleTwoView extends View {
         ringColorPaint.setStrokeWidth(mRingWidth);
         ringColorPaint.setShader(new SweepGradient(mViewCenterX, mViewCenterX, color, null));
         //逆时针旋转90度
-        canvas.rotate(-90, mViewCenterX, mViewCenterY);
+//        canvas.rotate(-90, mViewCenterX, mViewCenterY);
         canvas.drawArc(mRectF, 360, mSelectRing, false, ringColorPaint);
         ringColorPaint.setShader(null);
-
     }
+
+    /**
+     * 设定当前值
+     */
+    public void setValue(int value) {
+        if (value > mMaxValue) {
+            value = mMaxValue;
+        }
+        int start = 0;
+        int end = value;
+        startAnimator(start, end, 2000);
+    }
+
+    private void startAnimator(int start, int end, long animTime) {
+        valueAnimator = ValueAnimator.ofInt(start, end);
+        valueAnimator.setDuration(animTime);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int i = Integer.valueOf(String.valueOf(animation.getAnimatedValue()));
+//                textView.setText(i + "");
+                //每个单位长度占多少度
+                mSelectRing = (int) (360 * (i / 100f));
+                invalidate();
+            }
+        });
+        valueAnimator.start();
+    }
+
 
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import mvp.wangyukui.com.myapplication.animation.AnimationActivity;
 import mvp.wangyukui.com.myapplication.cycler.CyclerActivity;
 import mvp.wangyukui.com.myapplication.defineItem.DefineItemActivity;
 import mvp.wangyukui.com.myapplication.defineRecycler.DefineRecyclerActivity;
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
-    private Button button_circle,button_state_mode, button_rxJava_mode, button_duty, button_strategy, button_define_item;
+    private Button button_circle,button_state_mode, button_rxJava_mode,
+            button_duty, button_strategy, button_define_item,button_animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_strategy = findViewById(R.id.button_strategy);
         button_define_item = findViewById(R.id.button_define_item);
         button_circle = findViewById(R.id.button_circle);
+        button_animation = findViewById(R.id.button_animation);
     }
 
     private void setOnClickListener() {
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_strategy.setOnClickListener(this);
         button_define_item.setOnClickListener(this);
         button_circle.setOnClickListener(this);
+        button_animation.setOnClickListener(this);
     }
 
 
@@ -158,6 +162,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_circle:
                 CyclerActivity.startEnterActivity(this);
+                break;
+            case R.id.button_animation:
+                AnimationActivity.startEnterActivity(this);
                 break;
         }
     }

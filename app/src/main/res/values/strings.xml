@@ -12,4 +12,5 @@
     <string name="text_strategy_mode">策略模式</string>
     <string name="text_define_item">自定义条目</string>
     <string name="text_watch">水波纹</string>
+    <string name="text_animation">动画效果</string>
 </resources>

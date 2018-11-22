@@ -33,6 +33,7 @@
         <activity android:name=".strategyMode.StrategyActivity" />
         <activity android:name=".defineItem.DefineItemActivity" />
         <activity android:name=".cycler.CyclerActivity" />
+        <activity android:name=".animation.AnimationActivity" />
 
     </application>
 </manifest>

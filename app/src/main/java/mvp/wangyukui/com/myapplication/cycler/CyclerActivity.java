@@ -15,17 +15,22 @@ import mvp.wangyukui.com.myapplication.R;
 public class CyclerActivity extends AppCompatActivity {
 
     public static void startEnterActivity(MainActivity mainActivity) {
-        mainActivity.startActivity(new Intent(mainActivity,CyclerActivity.class));
+        mainActivity.startActivity(new Intent(mainActivity, CyclerActivity.class));
     }
+
     private WaveView wave_view;
+    private CircleTwoView circle_two_view;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cycler);
-        wave_view=findViewById(R.id.wave_view);
+        wave_view = findViewById(R.id.wave_view);
         wave_view.setFlowNum(50);
         wave_view.setUpSpeed(0);
         wave_view.setWaveSpeed(10);
+        circle_two_view = findViewById(R.id.circle_two_view);
+        circle_two_view.setValue(100);
     }
 
 }
