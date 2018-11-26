@@ -21,6 +21,7 @@ import mvp.wangyukui.com.myapplication.animation.AnimationActivity;
 import mvp.wangyukui.com.myapplication.cycler.CyclerActivity;
 import mvp.wangyukui.com.myapplication.defineItem.DefineItemActivity;
 import mvp.wangyukui.com.myapplication.defineRecycler.DefineRecyclerActivity;
+import mvp.wangyukui.com.myapplication.drawFunction.DrawFunctionActivity;
 import mvp.wangyukui.com.myapplication.duty.DutyActivity;
 import mvp.wangyukui.com.myapplication.mvp.MvpActivity;
 import mvp.wangyukui.com.myapplication.mvp.PresenterRequest;
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout relative_layout;
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
-    private Button button_circle,button_state_mode, button_rxJava_mode,
-            button_duty, button_strategy, button_define_item,button_animation;
+    private Button button_circle, button_state_mode, button_rxJava_mode,
+            button_duty, button_strategy, button_define_item, button_animation,button_draw_function;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_define_item = findViewById(R.id.button_define_item);
         button_circle = findViewById(R.id.button_circle);
         button_animation = findViewById(R.id.button_animation);
+        button_draw_function = findViewById(R.id.button_draw_function);
     }
 
     private void setOnClickListener() {
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_define_item.setOnClickListener(this);
         button_circle.setOnClickListener(this);
         button_animation.setOnClickListener(this);
+        button_draw_function.setOnClickListener(this);
     }
 
 
@@ -165,6 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_animation:
                 AnimationActivity.startEnterActivity(this);
+                break;
+            case R.id.button_draw_function:
+                DrawFunctionActivity.startEnterActivity(this);
                 break;
         }
     }

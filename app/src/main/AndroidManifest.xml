@@ -34,6 +34,8 @@
         <activity android:name=".defineItem.DefineItemActivity" />
         <activity android:name=".cycler.CyclerActivity" />
         <activity android:name=".animation.AnimationActivity" />
+        <activity android:name=".drawFunction.DrawFunctionActivity" />
+        <activity android:name=".drawFunction.DrawPathActivity" />
 
     </application>
 </manifest>
