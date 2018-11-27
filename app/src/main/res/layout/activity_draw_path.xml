@@ -6,7 +6,11 @@
 
     <mvp.wangyukui.com.myapplication.drawView.PathView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
+    <mvp.wangyukui.com.myapplication.drawView.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

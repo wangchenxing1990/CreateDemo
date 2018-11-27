@@ -15,7 +15,7 @@ import mvp.wangyukui.com.myapplication.R;
  */
 
 public class DrawFunctionActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button button_path;
+    private Button button_path,button_region;
 
     public static void startEnterActivity(Activity mActivity) {
         mActivity.startActivity(new Intent(mActivity, DrawFunctionActivity.class));
@@ -31,10 +31,12 @@ public class DrawFunctionActivity extends AppCompatActivity implements View.OnCl
 
     private void initView() {
         button_path = findViewById(R.id.button_path);
+        button_region = findViewById(R.id.button_region);
     }
 
     private void initClickListener() {
         button_path.setOnClickListener(this);
+        button_region.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +44,9 @@ public class DrawFunctionActivity extends AppCompatActivity implements View.OnCl
         switch (view.getId()) {
             case R.id.button_path:
                 DrawPathActivity.startEnterActivity(this);
+                break;
+            case R.id.button_region:
+                RegionActivity.startEnterActivity(this);
                 break;
         }
     }
