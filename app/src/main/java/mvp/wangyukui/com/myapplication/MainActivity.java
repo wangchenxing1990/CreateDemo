@@ -25,6 +25,7 @@ import mvp.wangyukui.com.myapplication.drawFunction.DrawFunctionActivity;
 import mvp.wangyukui.com.myapplication.duty.DutyActivity;
 import mvp.wangyukui.com.myapplication.mvp.MvpActivity;
 import mvp.wangyukui.com.myapplication.mvp.PresenterRequest;
+import mvp.wangyukui.com.myapplication.notification.NotificationActivity;
 import mvp.wangyukui.com.myapplication.rxjava.RxJavaActivity;
 import mvp.wangyukui.com.myapplication.statemode.StateActivity;
 import mvp.wangyukui.com.myapplication.strategyMode.StrategyActivity;
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MyNetWorkBroadcastReceiver registerReceiver;
     private TextView text_test;
     private Button button_circle, button_state_mode, button_rxJava_mode,
-            button_duty, button_strategy, button_define_item, button_animation,button_draw_function;
+            button_duty, button_strategy, button_define_item, button_animation,
+            button_draw_function,button_notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_circle = findViewById(R.id.button_circle);
         button_animation = findViewById(R.id.button_animation);
         button_draw_function = findViewById(R.id.button_draw_function);
+        button_notification = findViewById(R.id.button_notification);
     }
 
     private void setOnClickListener() {
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_circle.setOnClickListener(this);
         button_animation.setOnClickListener(this);
         button_draw_function.setOnClickListener(this);
+        button_notification.setOnClickListener(this);
     }
 
 
@@ -171,6 +175,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_draw_function:
                 DrawFunctionActivity.startEnterActivity(this);
+                break;
+            case R.id.button_notification:
+                NotificationActivity.startEnterActivity(this);
                 break;
         }
     }

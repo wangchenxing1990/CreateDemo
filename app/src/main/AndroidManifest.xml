@@ -37,6 +37,7 @@
         <activity android:name=".drawFunction.DrawFunctionActivity" />
         <activity android:name=".drawFunction.DrawPathActivity" />
         <activity android:name=".drawFunction.RegionActivity" />
+        <activity android:name=".notification.NotificationActivity" />
 
     </application>
 </manifest>
