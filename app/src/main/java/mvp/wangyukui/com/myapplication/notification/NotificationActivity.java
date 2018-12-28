@@ -16,7 +16,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+
+import mvp.wangyukui.com.myapplication.GlideApp;
 import mvp.wangyukui.com.myapplication.MainActivity;
 import mvp.wangyukui.com.myapplication.R;
 
@@ -28,7 +32,7 @@ public class NotificationActivity extends AppCompatActivity implements View.OnCl
     private Button button_chat_notification;
     private Button button_service_notification;
     NotificationManager mNotificationManager;
-
+    private ImageView imageView;
     public static void startEnterActivity(Activity mainActivity) {
         mainActivity.startActivity(new Intent(mainActivity, NotificationActivity.class));
     }
@@ -39,12 +43,21 @@ public class NotificationActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_notification);
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         createAllNotificationChannel();
+        imageView=findViewById(R.id.image_view);
         button_chat_notification = findViewById(R.id.button_chat_notification);
         button_service_notification = findViewById(R.id.button_service_notification);
         button_chat_notification.setOnClickListener(this);
         button_service_notification.setOnClickListener(this);
+        disPlay();
     }
 
+
+    public void disPlay(){
+        GlideApp.with(this)
+                .load(R.mipmap.system_setting)
+                .transform(new RoundedCorners(50))
+                .into(imageView);
+    }
 
     @Override
     public void onClick(View view) {
